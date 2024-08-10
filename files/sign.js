@@ -43,14 +43,12 @@ sign_btn2.addEventListener(`click`, function () {
     else{
     createUserWithEmailAndPassword(auth, sign_email.value, sign_password.value , sign_username.value)
       .then((userCredential) => {
-        // Signed up 
         const user = userCredential.user;
         console.log(user);
         Swal.fire("Account Create Successfully ✅");
         setTimeout(() => {
             window.location.href = '../index.html'
         }, 2000);
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -60,15 +58,12 @@ sign_btn2.addEventListener(`click`, function () {
         if (errorCode) {
             Swal.fire("Password should be at least 6 characters");
         }
-        // ..
       });
     }
 })
 
 // Eye function start
-eye_btn1.addEventListener(`click`, function (e) {
-    console.log('do');
-    
+eye_btn1.addEventListener(`click`, function (e) {   
     if (e.target.parentElement.previousElementSibling.id == `log_password`) {
         var log_type = e.target.parentElement.previousElementSibling.type
 
