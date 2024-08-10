@@ -1,0 +1,168 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.body {
+    background-image: linear-gradient(-90deg, #0057D3, #00345C);
+}
+
+.div_card {
+    width: 450px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.309);
+    margin-top: 3rem;
+}
+
+.div_card_sign {
+    width: 450px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.309);
+    margin-top: 10px;
+}
+
+@media(max-width: 453px) {
+    .div_card {
+        width: 100%;
+    }
+
+    .div_card_sign {
+        width: 100%;
+    }
+}
+
+.div2 {
+    background-color: white;
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    height: 35px;
+}
+
+
+.bor {
+    border: 2px solid black;
+}
+
+#sign_password,
+#log_password {
+    border: none;
+    outline: none;
+    width: 90%;
+    background: none;
+}
+
+#sign_email,
+#log_email {
+    border: none;
+    outline: none;
+    width: 100%;
+    background: none;
+}
+
+#sign_username {
+    border: none;
+    outline: none;
+    width: 100%;
+    background: none;
+}
+
+#log_email::-webkit-input-placeholder,
+#log_password::-webkit-input-placeholder,
+#log_username::-webkit-input-placeholder,
+#sign_email::-webkit-input-placeholder,
+#sign_password::-webkit-input-placeholder,
+#sign_username::-webkit-input-placeholder {
+    color: rgb(180, 180, 180);
+}
+
+#btn1 {
+    border: none;
+    background: none;
+}
+
+#btn2 {
+    width: 100%;
+    height: 45px;
+    border-radius: 15px;
+    background-color: #003B80;
+    border: none;
+    margin-top: 33px;
+    color: white;
+    font-weight: 500;
+}
+
+#btn3 {
+    width: 100%;
+    height: 45px;
+    border-radius: 15px;
+    background-color: #003B80;
+    border: none;
+    color: white;
+    font-weight: 500;
+}
+
+.bi-eye-fill,
+.bi-eye-slash-fill {
+    color: #003B80 !important;
+    font-size: 20px;
+}
+
+#btn2:hover,
+#btn3:hover {
+    transform: scale(1.03);
+    transition: 0.4s;
+}
+
+.font_weight {
+    font-weight: 500;
+}
+
+@media(max-width: 325px) {
+    .div_card {
+        margin-top: 0px;
+        height: 100vh;
+        border-radius: 0px;
+        background-color: #00345C;
+        color: white;
+    }
+
+    .div_card_sign {
+        margin-top: 0px;
+        border-radius: 0px;
+        background-color: #00345C;
+        color: white;
+    }
+
+    .div2 {
+        border: none;
+        background-color: rgba(255, 255, 255, 0.11);
+    }
+
+    #btn2,
+    #btn3 {
+        background-color: white;
+        color: black;
+    }
+
+    #log_password {
+        color: white;
+    }
+
+    #log_email {
+        color: white;
+    }
+
+    .bi-eye-fill,
+    .bi-eye-slash-fill {
+        color: white !important;
+    }
+
+    #sign_username,
+    #sign_email,
+    #sign_password {
+        color: white;
+    }
+}
