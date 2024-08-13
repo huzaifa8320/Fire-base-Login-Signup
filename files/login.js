@@ -1,3 +1,12 @@
+import {signInWithEmailAndPassword , onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import { auth} from "./config.mjs";
+
+onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        window.location.href = 'files/dashboard.html'
+    }
+});
+
 // Log_in item 
 var log_email = document.getElementById(`log_email`)
 var log_password = document.getElementById(`log_password`)
@@ -8,48 +17,44 @@ var login_btn2 = document.getElementById(`btn2`)
 // Eye button
 var eye_btn1 = document.getElementById(`btn1`)
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import { getAuth , signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyDBFRQk4_fJN9y92AVbBH4h3kHYSwLGAlo",
-    authDomain: "website-no--1.firebaseapp.com",
-    projectId: "website-no--1",
-    storageBucket: "website-no--1.appspot.com",
-    messagingSenderId: "569980740275",
-    appId: "1:569980740275:web:8b392af2daf8eb7e5706c6"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-
 // login function
 login_btn2.addEventListener('click' , function(){
-if (log_email.value == '') {
-    Swal.fire("Pleas Enter Email 📝");
-}
+    if (log_email.value == '') {
+        Swal.fire("Pleas Enter Email 📝");
+    }
 else if (log_password.value == '') {
     Swal.fire("Pleas Enter Password 📝");
 }
-else{
+else{    
+    login_btn2.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2" style="color: #ffffff;"></i>Log in'
     signInWithEmailAndPassword(auth, log_email.value, log_password.value)
-    .then((userCredential) => {
-        // Signed in 
+    .then(async(userCredential) => {
         const user = userCredential.user;
         Swal.fire("Login Successfully ✅");
+        log_email.value = ''
+        log_password.value = ''
+        login_btn2.innerHTML = 'Log in'
         setTimeout(() => {
             window.location.href = 'files/dashboard.html'
-        }, 2000);
-        // ...
+        }, 1000);
     })
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        Swal.fire("Account Not found 📝");
-        setTimeout(() => {
-            window.location.href = 'files/sign.html'
-        }, 2000);
+        console.log(errorCode);
+        console.log(errorMessage);
+        
+        if (errorCode == 'auth/network-request-failed') {
+            Swal.fire("Please check your internet connection and try again 🔌");
+        }
+        else{
+            Swal.fire("Account Not found 📝");
+            setTimeout(() => {
+                window.location.href = 'files/sign.html'
+            }, 1000);
+        }
+        login_btn2.innerHTML = 'Log in'
+        
     })}
     
     

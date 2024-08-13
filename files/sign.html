@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
+    
+    <link rel="icon" href="../img/tab_icon.png">
+
     <link rel="stylesheet" href="style.css">
 
     <!-- <link rel="icon" href="../img/tab.png"> -->
@@ -15,6 +18,9 @@
 
     <!-- Bootstrap icon  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- fomt awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="body">
@@ -22,8 +28,8 @@
 
         <!-- Login start  -->
 
-        <div class="div_card_sign py-5 px-2">
-            <h3 class="ms-2">Sign up</h3>
+        <div class="div_card_sign pb-5 pt-4 px-2">
+            <h3 class="ms-3">Sign up</h3>
             <div class="div_item px-4">
                 <form>
 
@@ -45,13 +51,26 @@
                         </div>
                     </div>
 
-                    <!-- Email -->
+                    <!-- Password -->
 
                     <div class="div_pass mt-4">
                         <p class="mb-2 font_weight">Password</p>
                         <div class="div2 d-flex align-items-center">
                             <input type="password" id="sign_password" placeholder="Password" class="ps-3 font_weight">
                             <button type="button" id="btn1"><i class="bi bi-eye-slash-fill"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Gender -->
+
+                    <div class="div_pass mt-4">
+                        <div class="div">
+                            <input type="radio" name="gender" id="male" class="me-1" value="male"><label for="male"
+                                class="me-2">Male</label>
+                            <input type="radio" name="gender" id="feemale" class="me-1" value="feemale"><label for="feemale"
+                                class="me-2">Feemale</label>
+                            <input type="radio" name="gender" id="other" class="me-1" value="other"><label for="other"
+                                class="me-2">Other</label>
                         </div>
                     </div>
 
@@ -78,6 +97,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<!-- Custom js -->
     <script src="../files/sign.js" type="module"></script>
 </body>
 
