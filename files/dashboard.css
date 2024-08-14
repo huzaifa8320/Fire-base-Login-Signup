@@ -42,6 +42,7 @@
 #main{
     height: 100vh;
     background-image: linear-gradient(-90deg, #0057D3, #00345C);
+    display: none;
 }
 
 .div1{

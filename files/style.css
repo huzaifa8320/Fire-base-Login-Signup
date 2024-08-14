@@ -120,7 +120,7 @@
     font-weight: 500;
 }
 
-@media(max-width: 325px) {
+@media(max-width: 400px) {
     .div_card {
         margin-top: 0px;
         height: 100vh;

@@ -9,8 +9,8 @@ let gender_user = document.getElementById('gender_user')
 let logout = document.getElementById('logout')
 let main = document.getElementById('main')
 let loader_div = document.getElementById('loader_div')
-
 main.style.display = 'none'
+loader_div.style.display = 'flex'
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         console.log('user is log');
@@ -25,7 +25,7 @@ onAuthStateChanged(auth, async (user) => {
                 gender_user.innerHTML = `${doc.data().gender_user.slice(0,1).toUpperCase()}${doc.data().gender_user.slice(1)}`
             }
             loader_div.style.display = 'none'
-            main.style.display = 'block'
+            main.style.display = 'flex'
         });
     } else {
         window.location.href = '../index.html'
