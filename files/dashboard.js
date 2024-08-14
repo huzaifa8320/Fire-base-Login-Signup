@@ -10,9 +10,9 @@ let logout = document.getElementById('logout')
 let main = document.getElementById('main')
 let loader_div = document.getElementById('loader_div')
 
+main.style.display = 'none'
 onAuthStateChanged(auth, async (user) => {
     if (user) {
-        main.style.display = 'none'
         console.log('user is log');
         
         const uid = user.uid;
@@ -29,7 +29,6 @@ onAuthStateChanged(auth, async (user) => {
         });
     } else {
         window.location.href = '../index.html'
-
     }
 });
 
