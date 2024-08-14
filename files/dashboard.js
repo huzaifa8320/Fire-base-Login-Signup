@@ -19,13 +19,10 @@ onAuthStateChanged(auth, async (user) => {
         const querySnapshot = await getDocs(collection(db, "data"));
         querySnapshot.forEach((doc) => {
             if (doc.data().uid == user.uid) {
-               console.log( doc.data());
-               
-                console.log(doc.data(), "match data");
-                name_user.innerHTML = doc.data().name
+                name_user.innerHTML = `${doc.data().name.slice(0,1).toUpperCase()}${doc.data().name.slice(1)}`
                 email_user.innerHTML = doc.data().email
                 password_user.innerHTML = doc.data().password
-                gender_user.innerHTML = doc.data().gender_user
+                gender_user.innerHTML = `${doc.data().gender_user.slice(0,1).toUpperCase()}${doc.data().gender_user.slice(1)}`
             }
             loader_div.style.display = 'none'
             main.style.display = 'block'
@@ -37,11 +34,20 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 logout.addEventListener('click', function () {
-
-    signOut(auth).then(() => {
-        console.log('Sign-out successful.');
-
-    }).catch((error) => {
-        console.log('An error happened');
-    });
+    Swal.fire({
+        title: "Do you want to Logout Your Account?",
+        showDenyButton: true,
+        confirmButtonText: "Yes",
+        denyButtonText: `No`
+      }).then((result) => {
+        if (result.isConfirmed) {
+          signOut(auth).then(() => {
+            console.log('Sign-out successful.');
+    
+        }).catch((error) => {
+            console.log('An error happened');
+        });
+        }
+      });
+    
 })

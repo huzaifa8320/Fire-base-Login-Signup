@@ -165,4 +165,7 @@
     #sign_password {
         color: white;
     }
+    .fa-solid{
+        color: black !important;
+    }
 }
